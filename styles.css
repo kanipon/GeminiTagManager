@@ -1,0 +1,265 @@
+/* Gemini Chat Organizer - Search UI */
+
+#gco-search-container {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 4px;
+}
+
+#gco-search-input {
+  flex: 1;
+  padding: 6px 10px;
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  color: #e0e0e0;
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+#gco-search-input:focus {
+  border-color: #8ab4f8;
+}
+
+#gco-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+#gco-search-clear {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+#gco-search-clear:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Gemini Chat Organizer - Filter UI */
+
+#gco-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px 12px 8px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gco-tag-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.gco-tag-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.gco-tag-btn.gco-tag-active {
+  background: rgba(138, 180, 248, 0.2);
+  border-color: rgba(138, 180, 248, 0.4);
+  color: #8ab4f8;
+}
+
+.gco-tag-count {
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+/* タグ編集ボタン */
+.gco-edit-tag-btn {
+  position: absolute;
+  right: 56px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  padding: 2px 4px;
+  z-index: 1;
+}
+
+.side-nav-entry-container:hover .gco-edit-tag-btn {
+  opacity: 0.7;
+}
+
+.gco-edit-tag-btn:hover {
+  opacity: 1 !important;
+}
+
+/* タグ編集ポップアップ */
+#gco-tag-editor {
+  position: fixed;
+  z-index: 10000;
+  background: #2d2d2d;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 8px;
+  min-width: 200px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.gco-tag-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #e0e0e0;
+  font-size: 13px;
+  outline: none;
+}
+
+.gco-tag-input:focus {
+  border-color: #8ab4f8;
+}
+
+.gco-tag-suggest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.gco-tag-suggest-item {
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.gco-tag-suggest-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.gco-tag-suggest-item.gco-tag-suggest-active {
+  background: rgba(138, 180, 248, 0.2);
+  border-color: rgba(138, 180, 248, 0.4);
+  color: #8ab4f8;
+}
+
+.gco-tag-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  gap: 4px;
+}
+
+.gco-tag-save,
+.gco-tag-clear {
+  padding: 4px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.gco-tag-save {
+  background: #8ab4f8;
+  color: #1e1e1e;
+}
+
+.gco-tag-save:hover {
+  background: #aecbfa;
+}
+
+.gco-tag-clear {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.gco-tag-clear:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 非表示ボタン */
+.gco-hide-btn {
+  position: absolute;
+  right: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  padding: 2px 4px;
+  color: rgba(255, 255, 255, 0.4);
+  z-index: 1;
+}
+
+.side-nav-entry-container:hover .gco-hide-btn {
+  opacity: 0.5;
+}
+
+.gco-hide-btn:hover {
+  opacity: 1 !important;
+  color: #f28b82;
+}
+
+/* 非表示トグルボタン */
+.gco-hidden-toggle {
+  border-style: dashed;
+}
+
+/* 非表示チャットの表示状態 */
+.gco-hidden-chat {
+  opacity: 0.4;
+  position: relative;
+}
+
+/* 復元ボタン */
+.gco-restore-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 2px 8px;
+  border: 1px solid rgba(138, 180, 248, 0.4);
+  border-radius: 4px;
+  background: rgba(138, 180, 248, 0.15);
+  color: #8ab4f8;
+  font-size: 11px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.gco-restore-btn:hover {
+  background: rgba(138, 180, 248, 0.3);
+}
+
+/* ストレージ警告 */
+#gco-storage-warning {
+  padding: 6px 12px;
+  background: rgba(242, 139, 130, 0.15);
+  border-bottom: 1px solid rgba(242, 139, 130, 0.3);
+  color: #f28b82;
+  font-size: 11px;
+  white-space: pre-line;
+}
